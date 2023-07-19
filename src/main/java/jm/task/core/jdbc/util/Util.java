@@ -22,4 +22,22 @@ public class Util {
         }
         return connection;
     }
+
+    public static void close(Connection connection, Statement statement) {
+
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
